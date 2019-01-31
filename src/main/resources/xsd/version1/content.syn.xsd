@@ -1,0 +1,82 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="media">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="channels">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="station" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="programme" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="playlist">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="track" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:short" name="id" use="optional"/>
+                                        <xs:attribute type="xs:string" name="name" use="optional"/>
+                                        <xs:attribute type="xs:short" name="genre" use="optional"/>
+                                        <xs:attribute type="xs:string" name="artist" use="optional"/>
+                                        <xs:attribute type="xs:time" name="length" use="optional"/>
+                                        <xs:attribute type="xs:string" name="starttime" use="optional"/>
+                                        <xs:attribute type="xs:string" name="endtime" use="optional"/>
+                                        <xs:attribute type="xs:string" name="synced" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="id" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="schedule">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="track" maxOccurs="unbounded" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:string">
+                                        <xs:attribute type="xs:short" name="id" use="optional"/>
+                                        <xs:attribute type="xs:string" name="name" use="optional"/>
+                                        <xs:attribute type="xs:string" name="repeat" use="optional"/>
+                                        <xs:attribute type="xs:time" name="starttime" use="optional"/>
+                                        <xs:attribute type="xs:time" name="length" use="optional"/>
+                                        <xs:attribute type="xs:time" name="endtime" use="optional"/>
+                                        <xs:attribute type="xs:string" name="startdate" use="optional"/>
+                                        <xs:attribute type="xs:string" name="enddate" use="optional"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:byte" name="id" use="optional"/>
+                        <xs:attribute type="xs:string" name="name" use="optional"/>
+                        <xs:attribute type="xs:string" name="endtimerule" use="optional"/>
+                        <xs:attribute type="xs:string" name="starttime" use="optional"/>
+                        <xs:attribute type="xs:string" name="repeat" use="optional"/>
+                        <xs:attribute type="xs:string" name="endtime" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:byte" name="id" use="optional"/>
+                  <xs:attribute type="xs:string" name="name" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="Device"/>
+      <xs:attribute type="xs:string" name="User"/>
+      <xs:attribute type="xs:byte" name="SyncNow"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
